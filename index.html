@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Invaders</title>
+    <style>
+        #game-container {
+            position: relative;
+            width: 480px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        .invader {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #f00;
+        }
+        #ship {
+            position: absolute;
+            bottom: 20px;
+            left: 220px;
+            width: 40px;
+            height: 20px;
+            background-color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Space Invaders</h1>
+    <div id="game-container">
+        <div id="ship"></div>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", moveShip);
+
+        function moveShip(e) {
+            var ship = document.getElementById("ship");
+            var leftPosition = parseInt(ship.style.left);
+
+            if (e.keyCode === 37 && leftPosition > 0) { // Left arrow key
+                ship.style.left = leftPosition - 10 + "px";
+            } else if (e.keyCode === 39 && leftPosition < 440) { // Right arrow key
+                ship.style.left = leftPosition + 10 + "px";
+            }
+        }
+    </script>
+</body>
+</html>
